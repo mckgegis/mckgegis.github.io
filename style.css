@@ -1,0 +1,22 @@
+h1 {
+    color: blueviolet;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color:#000;
+};
+
+button {
+    margin: 20px;
+}
+
+#cont1, #cont2, #cont3  {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+    height: 850px;
+    justify-content: space-evenly;
+}
