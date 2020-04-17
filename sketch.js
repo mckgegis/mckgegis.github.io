@@ -197,7 +197,7 @@
     };
 
     const createButtons = () => {
-      sketch.playButton = sketch.createButton("play");
+      sketch.playButton = sketch.createButton("►");
       sketch.playButton.position(20,20);
       sketch.playButton.mousePressed(togglePlaying);
       sketch.playButton.addClass('control-button');
@@ -206,11 +206,11 @@
     function togglePlaying() {
       if (!song1.isPlaying()) {
         song1.play();
-        sketch.playButton.html("pause");
+        sketch.playButton.html("||");
         dakine2 = true;
       } else {
         song1.pause();
-        sketch.playButton.html("play");
+        sketch.playButton.html("►");
         dakine2 = false
       };
     };
@@ -240,7 +240,7 @@
     // }
 
     const createButtons = () => {
-      sketch.playButton = sketch.createButton("play");
+      sketch.playButton = sketch.createButton("►");
       sketch.playButton.mousePressed(togglePlaying);
       sketch.playButton.addClass('control-button');
     };
@@ -248,11 +248,11 @@
     function togglePlaying() {
       if (!song2.isPlaying()) {
           song2.play();
-          sketch.playButton.html("pause");
+          sketch.playButton.html("||");
           dakine = true;
       } else {
           song2.pause();
-          sketch.playButton.html("play");
+          sketch.playButton.html("►");
           dakine = false;
       };
     };
@@ -325,7 +325,7 @@
     // };
 
     const createButtons = () => {
-      sketch.playButton = sketch.createButton("play");
+      sketch.playButton = sketch.createButton("►");
       sketch.playButton.mousePressed(togglePlaying);
       sketch.playButton.addClass('control-button');
     };
@@ -333,11 +333,11 @@
     function togglePlaying() {
       if (!song3.isPlaying()) {
         song3.play();
-        sketch.playButton.html("pause");
+        sketch.playButton.html("||");
         dakine3 = true;
       } else {
         song3.pause();
-        sketch.playButton.html("play");
+        sketch.playButton.html("►");
         dakine3 = false
       };
     };
