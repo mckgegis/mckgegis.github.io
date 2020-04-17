@@ -146,7 +146,7 @@
 
     sketch.draw = () => {
       sketch.background(0, 0, 0, 25)
-      setGradient(0, 0, sketch.width, sketch.height, c1, c2);
+      // setGradient(0, 0, sketch.width, sketch.height, c1, c2);
       let spectrum = sketch.fft.analyze();
       sketch.translate(sketch.width/2, sketch.height/2);
       points = 200;
