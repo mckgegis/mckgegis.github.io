@@ -8,14 +8,14 @@
   let dakine3 = false;
   let firework;
   let fact;
-  
+
   let total = 46;
   let factor = 0;
 
- 
-  
+
+
   const s1 = (sketch) => {
-  
+
      sketch.setup = () => {
       sketch.createCanvas(1200, 800);
       sketch.background(0)
@@ -30,9 +30,9 @@
       sketch.fft = new p5.FFT(.9, 512)
       sketch.angleMode(sketch.DEGREES);
       sketch.amp = new p5.Amplitude()
-      
+
     }
-    
+
     class Firework {
       constructor() {
         if (sketch.random(1) <= .5) {
@@ -45,7 +45,7 @@
         this.boom = false;
         this.particles = [];
       }
-  
+
       done() {
         if (this.boom && this.particles.length === 0) {
           return true;
@@ -53,7 +53,7 @@
           return false;
         }
       }
-  
+
       update() {
         if(!this.boom) {
           this.firework.applyForce(gravity);
@@ -61,7 +61,7 @@
           if (this.firework.vel.y >= 0){
             this.boom = true;
             this.magic()
-  
+
           }
         }
         for (let i = this.particles.length -1; i >= 0; i--) {
@@ -72,14 +72,14 @@
           }
         }
       }
-  
+
       magic() {
         for(let i = 0; i < 100; i++) {
           let p = new Particle(this.firework.pos.x, this.firework.pos.y, this.hue);
           this.particles.push(p);
         }
       }
-      
+
       show() {
         if(!this.boom) {
           this.firework.show()
@@ -89,7 +89,7 @@
         }
       }
     }
-    
+
     class Particle {
       constructor(x, y, hue, firework) {
         this.pos = sketch.createVector(x,y);
@@ -104,11 +104,11 @@
         }
         this.acc = sketch.createVector(0,0);
       }
-      
+
       applyForce(force) {
         this.acc.add(force);
       }
-      
+
       update() {
         if(!this.firework) {
           this.vel.mult(.95)
@@ -118,7 +118,7 @@
         this.pos.add(this.vel);
         this.acc.mult(0)
       }
-      
+
       show() {
         if(!this.firework) {
           sketch.stroke(this.hue, 255, 255, this.lifespan)
@@ -129,9 +129,9 @@
         }
           sketch.point(this.pos.x, this.pos.y)
       }
-  
+
     }
-    
+
     function setGradient(x, y, w, h, c1, c2) {
       sketch.noFill();
       // Top to bottom gradient
@@ -143,7 +143,7 @@
         sketch.line(x, i, x + w, i);
       }
     }
-    
+
     sketch.draw = () => {
       sketch.background(0, 0, 0, 25)
       setGradient(0, 0, sketch.width, sketch.height, c1, c2);
@@ -156,7 +156,7 @@
         if(sketch.random(1) < .04) {
           fireworks.push(new Firework())
         }
-        
+
         for (let i = fireworks.length-1; i >= 0 ; i--) {
           fireworks[i].update();
           fireworks[i].show();
@@ -165,7 +165,7 @@
           }
         }
       }
-  
+
       for (let i = 0; i < spectrum.length; i++) {
         let amp = spectrum[i];
         let angle = sketch.map(i, 0, spectrum.length, 0, 720);
@@ -174,17 +174,17 @@
         let y = radius * sketch.sin(angle);
         sketch.stroke(255);
         sketch.strokeWeight(2);
-  
+
         sketch.line(0, 0, x, y)
       };
-        
+
       sketch.fill('pink')
       const size = sketch.amp.getLevel() * 50;
       sketch.ellipse(0, 0, 250+size, 250+size);
       sketch.image(img, -67, -75, 140, 150)
-     
+
     }
-  
+
      sketch.preload = () => {
       song1 = sketch.loadSound(`assets/sounds/sound_1.mp3`);
       // song1.setVolume(.5);
@@ -198,10 +198,11 @@
 
     const createButtons = () => {
       sketch.playButton = sketch.createButton("play");
+      sketch.playButton.position(20,20);
       sketch.playButton.mousePressed(togglePlaying);
       sketch.playButton.addClass('control-button');
     };
-  
+
     function togglePlaying() {
       if (!song1.isPlaying()) {
         song1.play();
@@ -213,31 +214,31 @@
         dakine2 = false
       };
     };
-  
-  
+
+
   };
-  
-  
+
+
   const s2 = (sketch) => {
     sketch.setup = () => {
       sketch.createCanvas(700, 700);
       r = sketch.width/3
       createButtons();
       sketch.amp = new p5.Amplitude()
-      
+
     }
-  
+
     function getVector(i) {
       v = p5.Vector.fromAngle(i + Math.PI, r);
       return v
     }
-  
+
     // sketch.preload = () => {
-     
+
     //   song2 = sketch.loadSound(`assets/sounds/sound_2.mp3`);
-     
+
     // }
-  
+
     const createButtons = () => {
       sketch.playButton = sketch.createButton("play");
       sketch.playButton.mousePressed(togglePlaying);
@@ -255,39 +256,39 @@
           dakine = false;
       };
     };
-  
-  
+
+
     sketch.draw = () => {
       sketch.background(0, 0, 0, 25)
       sketch.stroke(255)
       sketch.noFill();
       change = sketch.amp.getLevel() * 50
       sketch.translate(sketch.width / 2, sketch.height / 2);
-      
+
       sketch.strokeWeight(6);
       sketch.stroke(sketch.random(255), sketch.random(255), sketch.random(255))
       sketch.circle(0, 0, change + sketch.width-100);
       // sketch.filter(sketch.BLUR, 1)
-  
+
       if (dakine) {
           factor += .001
       } else {
           factor += 0
       };
-  
+
       for (let j = 0; j < total; j++) {
           a = getVector(j);
           b = getVector(j * factor);
           sketch.stroke('white');
           sketch.strokeWeight(2)
-  
+
           sketch.line(a.x, a.y, b.x, b.y);
       }
     }
   }
-  
+
   const s3 = (sketch) => {
-  
+
     sketch.setup = () => {
       sketch.createCanvas(1200, 800);
       createButtons();
@@ -295,40 +296,40 @@
       amp2 = new p5.Amplitude()
       bubbles = [];
     };
-  
+
     class Bubble {
       constructor() {
         this.x = sketch.random(10, 1100);
         this.y = 0;
         this.vy = sketch.random(5);
-        this.alpha = 255; 
+        this.alpha = 255;
       }
-  
+
       update() {
         this.y += this.vy;
         this.alpha -= 1.5;
       }
-  
+
       show() {
         sketch.noStroke();
         sketch.fill(sketch.color('blue'), this.alpha);
         sketch.circle(this.x, this.y, 5);
       };
     }
-  
-  
-  
-  
+
+
+
+
     // sketch.preload = () => {
     //   song3 = sketch.loadSound(`assets/sounds/sound_2.mp3`);
     // };
-  
+
     const createButtons = () => {
       sketch.playButton = sketch.createButton("play");
       sketch.playButton.mousePressed(togglePlaying);
       sketch.playButton.addClass('control-button');
     };
-  
+
     function togglePlaying() {
       if (!song3.isPlaying()) {
         song3.play();
@@ -340,7 +341,7 @@
         dakine3 = false
       };
     };
-  
+
     sketch.draw = () => {
       sketch.colorMode(sketch.RGB)
       sketch.fill(0);
@@ -352,7 +353,7 @@
       } else {
         size2 = 0
       }
-      
+
       sketch.circle(sketch.width/2, sketch.height/2, sketch.width/4+size2);
       if (dakine3) {
         if (sketch.random(1) < .1) {
@@ -367,12 +368,12 @@
           bubbles.splice(i, 1);
         }
       }
-  
-      
-      
+
+
+
     }
   }
-  
-  const sketch1 = new p5(s1, document.getElementById('cont1'));
-  const sketch2 = new p5(s2, document.getElementById('cont2'));
-  const sketch3 = new p5(s3, document.getElementById('cont3'));
+
+  const sketch1 = new p5(s1, document.getElementById('cont3'));
+  const sketch2 = new p5(s2, document.getElementById('cont1'));
+  const sketch3 = new p5(s3, document.getElementById('cont2'));
