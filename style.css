@@ -25,6 +25,7 @@ button {
 .control-button {
     width: 250px;
     height: 100px;
+    background: : none;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: x-large;
