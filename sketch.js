@@ -196,7 +196,7 @@
 
     const createButtons = () => {
       sketch.playButton = sketch.createButton("►");
-      sketch.playButton.position(640,2415);
+      sketch.playButton.position(644,2425);
       sketch.playButton.mousePressed(togglePlaying);
       sketch.playButton.addClass('control-button');
     };
