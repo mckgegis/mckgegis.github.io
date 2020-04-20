@@ -9,7 +9,7 @@
   let firework;
   let fact;
 
-  let total = 100;
+  let total = 46;
   let factor = 0;
 
 
