@@ -27,7 +27,7 @@ button:focus { outline:none }
 .control-button {
     width: 150px;
     height: 100px;
-    background: : black;
+    background: black;
     border: none;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
