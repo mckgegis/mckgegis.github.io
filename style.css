@@ -13,6 +13,8 @@ button {
     margin: 20px;
 }
 
+button:focus { outline:none }
+
 #cont1, #cont2, #cont3  {
     display: flex;
     flex-direction: column;
