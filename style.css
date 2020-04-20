@@ -40,3 +40,7 @@ button:focus { outline:none }
     color: pink;
     font-size: xx-large;
 }
+
+h3, p{
+  color: white;
+}
