@@ -178,10 +178,9 @@
         sketch.line(0, 0, x, y)
       };
 
-      sketch.fill('pink')
+      sketch.fill('black')
       const size = sketch.amp.getLevel() * 50;
       sketch.ellipse(0, 0, 250+size, 250+size);
-      sketch.image(img, -67, -75, 140, 150)
 
     }
 
@@ -193,12 +192,11 @@
       song3 = sketch.loadSound(`assets/sounds/sound_3.mp3`);
       // song3.setVolume(.5);
 
-      img = sketch.loadImage('assets/mariah.jpeg');
     };
 
     const createButtons = () => {
       sketch.playButton = sketch.createButton("►");
-      sketch.playButton.position(700,2400);
+      sketch.playButton.position(650,2350);
       sketch.playButton.mousePressed(togglePlaying);
       sketch.playButton.addClass('control-button');
     };
