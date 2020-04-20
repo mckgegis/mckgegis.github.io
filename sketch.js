@@ -9,7 +9,7 @@
   let firework;
   let fact;
 
-  let total = 46;
+  let total = 100;
   let factor = 0;
 
 
@@ -231,11 +231,6 @@
       return v
     }
 
-    // sketch.preload = () => {
-
-    //   song2 = sketch.loadSound(`assets/sounds/sound_2.mp3`);
-
-    // }
 
     const createButtons = () => {
       sketch.playButton = sketch.createButton("►");
