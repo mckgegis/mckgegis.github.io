@@ -31,6 +31,6 @@ Each bar around the circle represents a frequency of the sound.  As the amplitud
 
 ![alt text](https://github.com/mckgegis/mckgegis.github.io/blob/master/assets/images/fireworks.png)
 
-![alt text](https://github.com/mckgegis/mckgegis.github.io/blob/master/assets/images/vis.png)
+![alt text](https://github.com/mckgegis/mckgegis.github.io/blob/master/assets/images/vis3.png)
 
 
