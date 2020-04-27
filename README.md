@@ -10,7 +10,7 @@ http://mckgegis.github.io
 
 ### Visualizer 1
 
-The circle is split evenly into 46 different points each with a value between 0 and 45.  Each point then points to the the value of itself times a factor.  Factor starts off as 0 then every frame factor is increased by .001 causing the visual effect
+The circle is split evenly into 46 different points each with a value between 0 and 45.  Each point then points to the the value of itself times a factor mod 46.  Factor starts off as 0 then every frame factor is increased by .001 causing the visual effect of the vectors constantly moving
 
 ![alt text](https://github.com/mckgegis/mckgegis.github.io/blob/master/assets/images/factors.png)
 
