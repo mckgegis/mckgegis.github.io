@@ -231,26 +231,6 @@
       return v
     }
 
-
-    const createButtons = () => {
-      sketch.playButton = sketch.createButton("►");
-      sketch.playButton.mousePressed(togglePlaying);
-      sketch.playButton.addClass('control-button');
-    };
-
-    function togglePlaying() {
-      if (!song2.isPlaying()) {
-          song2.play();
-          sketch.playButton.html("||");
-          dakine = true;
-      } else {
-          song2.pause();
-          sketch.playButton.html("►");
-          dakine = false;
-      };
-    };
-
-
     sketch.draw = () => {
       sketch.background(0, 0, 0, 25)
       sketch.stroke(255)
@@ -278,7 +258,28 @@
           sketch.line(a.x, a.y, b.x, b.y);
       }
     }
+
+
+    const createButtons = () => {
+      sketch.playButton = sketch.createButton("►");
+      sketch.playButton.mousePressed(togglePlaying);
+      sketch.playButton.addClass('control-button');
+    };
+
+    function togglePlaying() {
+      if (!song2.isPlaying()) {
+          song2.play();
+          sketch.playButton.html("||");
+          dakine = true;
+      } else {
+          song2.pause();
+          sketch.playButton.html("►");
+          dakine = false;
+      };
+    };
+
   }
+
 
   const s3 = (sketch) => {
 
@@ -310,31 +311,6 @@
       };
     }
 
-
-
-
-    // sketch.preload = () => {
-    //   song3 = sketch.loadSound(`assets/sounds/sound_2.mp3`);
-    // };
-
-    const createButtons = () => {
-      sketch.playButton = sketch.createButton("►");
-      sketch.playButton.mousePressed(togglePlaying);
-      sketch.playButton.addClass('control-button');
-    };
-
-    function togglePlaying() {
-      if (!song3.isPlaying()) {
-        song3.play();
-        sketch.playButton.html("||");
-        dakine3 = true;
-      } else {
-        song3.pause();
-        sketch.playButton.html("►");
-        dakine3 = false
-      };
-    };
-
     sketch.draw = () => {
       sketch.colorMode(sketch.RGB)
       sketch.fill(0);
@@ -365,6 +341,26 @@
 
 
     }
+
+    const createButtons = () => {
+      sketch.playButton = sketch.createButton("►");
+      sketch.playButton.mousePressed(togglePlaying);
+      sketch.playButton.addClass('control-button');
+    };
+
+    function togglePlaying() {
+      if (!song3.isPlaying()) {
+        song3.play();
+        sketch.playButton.html("||");
+        dakine3 = true;
+      } else {
+        song3.pause();
+        sketch.playButton.html("►");
+        dakine3 = false
+      };
+    };
+
+
   }
 
   const sketch1 = new p5(s1, document.getElementById('cont3'));
